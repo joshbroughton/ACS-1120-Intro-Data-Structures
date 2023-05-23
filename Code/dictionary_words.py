@@ -5,20 +5,17 @@ import time
 start_time = time.time()
 
 num_of_words = int(sys.argv[1])
-words = []
+words = None
 
 
 with open('/usr/share/dict/words', 'r') as dictionary:
-    lines = dictionary.readlines()
-
-    for line in lines:
-        words.append(line.strip())
+    words = dictionary.readlines()
 
 words_sample = sample(words, num_of_words)
 output = ''
 
 for word in words_sample:
-    output += word + ' '
+    output += word.strip() + ' '
 
 print(output)
 
