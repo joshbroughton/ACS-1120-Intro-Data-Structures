@@ -10,5 +10,3 @@ for word in words:
     output += word + ' '
 
 print(output)
-
-
