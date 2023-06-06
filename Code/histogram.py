@@ -48,4 +48,4 @@ class Histogram:
             else:
                 sentence += " "
 
-        return sentence
+        return sentence.capitalize()
