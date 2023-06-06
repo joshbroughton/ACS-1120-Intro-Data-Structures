@@ -1,17 +1,15 @@
 """Main script, uses other modules to generate sentences."""
 from flask import Flask
-
+from histogram import Histogram
 
 app = Flask(__name__)
 
-# TODO: Initialize your histogram, hash table, or markov chain here.
-# Any code placed here will run only once, when the server starts.
-
+hist = Histogram('war_peace.txt')
 
 @app.route("/")
 def home():
     """Route that returns a web page containing the generated text."""
-    return "<p>TODO: Return a word here!</p>"
+    return hist.random_sentence()
 
 
 if __name__ == "__main__":
