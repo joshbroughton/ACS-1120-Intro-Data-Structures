@@ -25,10 +25,10 @@ class Listogram(list):
         if self.__contains__(word):
             i = self.index_of(word)
             frequency = self[i][1]
-            self[i] = (word, frequency + count)
+            self[i] = [word, frequency + count]
         else:
             self.types += 1
-            self.append((word, count))
+            self.append([word, count])
 
 
     def frequency(self, word):
