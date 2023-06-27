@@ -88,6 +88,15 @@ class LinkedList:
             new_node.next = self.head
             self.head = new_node
 
+    def replace(self, old_item, new_item):
+        """Replace an item in the list"""
+        if not self.is_empty():
+            current_node = self.head
+            while current_node is not None:
+                if current_node.data == old_item:
+                    current_node.data = new_item
+                current_node = current_node.next
+
     def find(self, matcher):
         """Return an item from this linked list if it is present.
         TODO: Best case running time: O(???) Why and under what conditions?
