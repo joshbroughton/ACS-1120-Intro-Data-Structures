@@ -1,15 +1,15 @@
 """Main script, uses other modules to generate sentences."""
 from flask import Flask
-from histogram import Histogram
+from tweet_generator import TweetGenerator
 
 app = Flask(__name__)
 
-hist = Histogram('war_peace.txt')
+tweet_generator = TweetGenerator("war_peace.txt")
 
 @app.route("/")
 def home():
     """Route that returns a web page containing the generated text."""
-    return hist.random_sentence()
+    return tweet_generator.tweet()
 
 
 if __name__ == "__main__":

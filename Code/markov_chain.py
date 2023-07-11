@@ -21,8 +21,6 @@ class MarkovChain(dict):
         for word, tokens in self.items():
             self[word] = Listogram(tokens)
 
-        print(self)
-
     def build_sublists(self, word, next_word):
         '''helper method to build the sublists during construction'''
         if word in self:
@@ -31,19 +29,23 @@ class MarkovChain(dict):
             self[word] = [next_word]
 
     def generate_sentence(self):
-        '''Generate a sentece; hardcoding the start for now'''
-        length = random.randint(10, 25)
-        last_word = "A"
-        sentence = "A"
+        '''Generate a sentece'''
+        length = random.randint(15, 20)
+        punctuation = ['.', '?', '!']
+        last_word = random.choice(list(self.keys()))
+        last_word.replace(".", "")
+        sentence = last_word
 
-        for i in range(length):
+        for _ in range(length):
             if self[last_word]:
                 next_word = self[last_word].sample()
-                sentence += " " + next_word
+                if next_word != "I":
+                    sentence += " " + next_word.lower()
+                else:
+                    sentence += " " + next_word
                 last_word = next_word
+            for char in punctuation:
+                if char in next_word:
+                    return sentence.capitalize() + " "
 
-        return sentence
-
-
-markov = MarkovChain(['A', 'man', 'a', 'plan', 'a', 'canal:', 'Panama!', 'A', 'dog', 'a', 'panic', 'in', 'a', 'pagoda!'])
-print(markov.generate_sentence())
+        return sentence.capitalize() + '. '
