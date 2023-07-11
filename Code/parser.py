@@ -10,6 +10,3 @@ class Parser:
                 word = re.sub("[^a-zA-Z!,.?']", "", word)
                 if word != "CHAPTER":
                     self.word_list.append(word)
-
-    def word_list(self):
-        return self.word_list

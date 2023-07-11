@@ -33,19 +33,16 @@ class MarkovChain(dict):
         length = random.randint(15, 20)
         punctuation = ['.', '?', '!']
         last_word = random.choice(list(self.keys()))
-        last_word.replace(".", "")
+        # last_word.replace(".", "")
         sentence = last_word
 
         for _ in range(length):
             if self[last_word]:
                 next_word = self[last_word].sample()
-                if next_word != "I":
-                    sentence += " " + next_word.lower()
-                else:
-                    sentence += " " + next_word
+                sentence += " " + next_word
                 last_word = next_word
             for char in punctuation:
                 if char in next_word:
                     return sentence.capitalize() + " "
 
-        return sentence.capitalize() + '. '
+        return sentence[0].upper() + sentence[1:]
