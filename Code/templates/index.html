@@ -4,9 +4,53 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tweet Generator</title>
+  <title>Tweet Generator - War and Peace</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      line-height: 1.6;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    blockquote {
+      max-width: 600px;
+      padding: 20px;
+      border: 2px solid #333;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+    }
+
+    blockquote:before {
+      content: "\201C"; /* Left double quotation mark */
+      font-size: 40px;
+      line-height: 1;
+      margin-right: 10px;
+      position: absolute;
+      top: 0;
+      left: -20px; /* Adjust the negative margin as needed */
+    }
+
+    blockquote:after {
+      content: "\201D"; /* Right double quotation mark */
+      font-size: 40px;
+      line-height: 1;
+      margin-left: 10px;
+      position: absolute;
+      bottom: 0;
+      right: -20px; /* Adjust the negative margin as needed */
+    }
+  </style>
 </head>
 <body>
-    <blockquote>TODO: Replace this text with the sentence you generated!</blockquote>
+    <blockquote>{{ sentence }}</blockquote>
 </body>
 </html>
+
