@@ -6,7 +6,7 @@
 
 ## 2. Run the container
 
-`docker run -p 5001:5000 --rm --name tweet-generator-container tween-generator-image`
+`docker run -p 5001:5000 --rm --name tweet-generator-container tweet-generator-image`
 
 ## 3. Access the tweet generator on your browser of choice
 
